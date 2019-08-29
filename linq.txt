@@ -1,0 +1,5 @@
+     var tmp = context.OrderDetails.GroupBy(x => x.ProductId)
+                      .Select(y => new {  
+                          Id= y.Key,
+                          Quantity = y.Sum(x => x.Quantity * x.UnitPrice)
+                      }).ToList();
